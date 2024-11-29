@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel and Adventure Guider</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo" style="display: flex; align-items: center;">
+                <a href="#" style="display: flex; align-items: center; text-decoration: none; color: orange;">
+                    <i class="bx bx-map bx-tada" style="font-size: 2.5rem; margin-right: 0.5rem; color: orange;"></i>
+                    <span style="font-size: 2rem; font-weight: 900;">TravelGuider</span>
+                </a>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="news.html">News & Updates</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="login.html" style="padding: 8px 15px; background-color: orange; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; transition: background-color 0.3s ease;">Login</a>
+                </li>
+                <li>
+                    <a href="signup.html" style="padding: 8px 15px; background-color: orange; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; margin-left: 10px; transition: background-color 0.3s ease;">Sign Up</a>
+                </li>
+                <li>
+                    <a href="emergency.html" style="padding: 8px 15px; background-color: red; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; margin-left: 10px; transition: background-color 0.3s ease;">Emergency Button</a>
+                </li>
+            </ul>
+            
+            
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <section id="hero" style="background-image: url('Traveling boat.jpg.jpg'); background-size: cover; background-position: center; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; opacity: 0; transition: opacity 2s;">
+        <div style="background-color: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px;">
+            <h1 style="font-size: 3rem; margin-bottom: 10px;">Welcome to Travel Guider</h1>
+            <p style="font-size: 1.5rem; margin-bottom: 20px;">"Your ultimate companion for discovering new destinations. Experience the joy of travel, culture, and unforgettable adventures."</p>
+            <a href="#featured-destinations" style="background-color: orange; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 1.2rem; transition: transform 0.3s ease;" 
+               onmouseover="animateButtonHover(this)" 
+               onmouseout="resetButtonHover(this)">Discover Your Next Adventure</a>
+        </div>
+    </section>
+    
+    <script>
+        // Function to make the hero section fade in on page load
+        window.onload = function() {
+            document.getElementById('hero').style.opacity = 1;
+        };
+    
+        // Function to animate button hover
+        function animateButtonHover(element) {
+            element.style.transform = 'scale(1.1)';
+            element.style.backgroundColor = '#ff8c00'; // Darker orange on hover
+        }
+    
+        // Function to reset button hover effect
+        function resetButtonHover(element) {
+            element.style.transform = 'scale(1)';
+            element.style.backgroundColor = 'orange';
+        }
+    </script>
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('castle.jpg'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 20px;
+            color: #333; /* Default text color */
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        h2 {
+            color: #ff6f20; /* Orange color for headings */
+            text-align: center;
+        }
+        .booking-section {
+            background-color: rgba(255, 255, 255, 0.8); /* White background with transparency */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #ff6f20; /* Orange button */
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+        .btn:hover {
+            background-color: #e55b00; /* Darker orange on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Accommodation Booking Section -->
+        <div class="booking-section">
+            <h2>Accommodation Booking</h2>
+            <form id="accommodation-form">
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" placeholder="Enter location" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkin">Check-in Date</label>
+                    <input type="date" id="checkin" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkout">Check-out Date</label>
+                    <input type="date" id="checkout" required>
+                </div>
+                <div class="form-group">
+                    <label for="guests">Number of Guests</label>
+                    <select id="guests" required>
+                        <option value="1">1 Guest</option>
+                        <option value="2">2 Guests</option>
+                        <option value="3">3 Guests</option>
+                        <option value="4">4 Guests</option>
+                        <option value="5">5 Guests</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Book Accommodation</button>
+            </form>
+        </div>
+
+        <!-- Activity Booking Section -->
+        <div class="booking-section">
+            <h2>Activity Booking</h2>
+            <form id="activity-form">
+                <div class="form-group">
+                    <label for="activity">Select Activity</label>
+                    <select id="activity" required>
+                        <option value="city_tour">City Tour</option>
+                        <option value="snorkeling">Snorkeling</option>
+                        <option value="hiking">Hiking</option>
+                        <option value="cultural_show">Cultural Show</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="activity_date">Date</label>
+                    <input type="date" id="activity_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="participants">Number of Participants</label>
+                    <select id="participants" required>
+                        <option value="1">1 Participant</option>
+                        <option value="2">2 Participants</option>
+                        <option value="3">3 Participants</option>
+                        <option value="4">4 Participants</option>
+                        <option value="5">5 Participants</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Book Activity</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Handle accommodation booking form submission
+        document.getElementById('accommodation-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Accommodation booked successfully!');
+            this.reset(); // Reset form fields
+        });
+
+        // Handle activity booking form submission
+        document.getElementById('activity-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Activity booked successfully!');
+            this.reset(); // Reset form fields
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Footer Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* CSS for the advanced footer */
+
+        body {
+    font-family: 'Times New Roman', Times, serif;
+    background: url('travel.jpg') no-repeat center center fixed; 
+    background-size: cover; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* Transparent background for a specific section */
+.featured-section, .travel-tips-section {
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 50px 0;
+    color: white;
+}
+
+/* Adjusting container styles for the transparent background */
+.featured-section .container, .travel-tips-section .container {
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.footer {
+    background: rgba(34, 34, 34, 0.9); 
+    padding: 50px 0;
+    color: #ddd;
+}
+
+
+
+        .content {
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #222;
+            color: #ddd;
+            padding: 50px 0;
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        .footer-column h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-column p,
+        .footer-column ul {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: orange;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .social-icons a {
+            color: #ddd;
+            margin-right: 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: orange;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            color: #aaa;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Content of the website -->
+    <div class="content">
+        <!-- Your content goes here -->
+    </div>
+<!-- Advanced Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>Welcome to TravelGuide, your go-to platform for discovering the world's most exciting destinations. Whether you're seeking adventure, relaxation, or cultural experiences, we bring the best travel spots right to your screen. Our platform is designed to help you plan, book, and enjoy your travels with ease. At TravelGuide, we're dedicated to making your travel dreams come true. Explore our curated guides, stay informed with the latest travel news, and embark on your next journey with confidence.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="news.html">News & Updates</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><a href="mailto:info@travelguider.lk">info@travelguider.lk</a></li>
+                    <li><a href="tel:+94123456789">+94 123 456 789</a></li>
+                    <li><a href="#">123 Travel Lane, Colombo 07, Sri Lanka</a></li>
+                </ul>
+                
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 TravelGuide. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

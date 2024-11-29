@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Tips</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #6a5acd;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #6a5acd;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .topic {
+            background: white;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            transition: transform 0.2s;
+        }
+
+        .topic:hover {
+            transform: translateY(-5px);
+        }
+
+        button.toggle-btn {
+            background-color: #6a5acd;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button.toggle-btn:hover {
+            background-color: #5c4cb1;
+        }
+
+        .details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #6a5acd;
+            border-radius: 5px;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Travel Tips</h1>
+        <p>Your guide to safe, budget-friendly, and sustainable travel.</p>
+    </header>
+    <main>
+        <section class="topic" id="safety">
+            <h2>Travel Safety Tips</h2>
+            <img src="https://example.com/safety-tips.jpg" alt="Travel Safety Tips">
+            <p>Stay safe while traveling by following these essential tips.</p>
+            <button class="toggle-btn" onclick="toggleDetails('safety')">Show Details</button>
+            <div class="details">
+                <p>Safety tips for travelers encompass a range of advice to help ensure personal safety and security during a trip. These tips address common risks associated with travel, such as theft, accidents, and health emergencies.
+
+                    Examples:
+                    
+                        Stay Aware of Your Surroundings: Avoid distractions like looking at your phone in crowded areas. Instead, keep your belongings secure and be aware of people around you.
+                        Use Reputable Transportation: When traveling in unfamiliar places, use trusted transportation options such as licensed taxis or well-reviewed ride-sharing apps instead of accepting rides from strangers.
+                        Keep Copies of Important Documents: Make photocopies of your passport, ID, and insurance information, and store them separately from the originals in case of loss or theft.</p>
+            </div>
+        </section>
+    </main>
+    <script>
+        // JavaScript for toggling details visibility
+        function toggleDetails(topic) {
+            const details = document.querySelector(`#${topic} .details`);
+            details.style.display = details.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

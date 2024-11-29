@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Tips</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #6a5acd;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #6a5acd;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .topic {
+            background: white;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            transition: transform 0.2s;
+        }
+
+        .topic:hover {
+            transform: translateY(-5px);
+        }
+
+        button.toggle-btn {
+            background-color: #6a5acd;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button.toggle-btn:hover {
+            background-color: #5c4cb1;
+        }
+
+        .details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #6a5acd;
+            border-radius: 5px;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        /* Styles for Travel Health Tips */
+        #health-tips {
+            background-color: #e8f8f5;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Travel Tips</h1>
+        <p>Your guide to safe, budget-friendly, and sustainable travel.</p>
+    </header>
+    <main>
+        <section class="topic" id="health-tips">
+            <h2>Travel Health Tips</h2>
+            <img src="https://example.com/health-tips.jpg" alt="Travel Health Tips">
+            <p>Stay healthy and safe while traveling.</p>
+            <button class="toggle-btn" onclick="toggleDetails('health-tips')">Show Details</button>
+            <div class="details">
+                <p>Travel health tips focus on maintaining well-being while on the move, including advice on vaccinations, staying hydrated, and avoiding common illnesses. These tips help travelers stay healthy during their journeys and are especially relevant in areas with different health risks.
+
+                    Examples:
+                    
+                        Vaccinations: Research required vaccinations for your destination (e.g., Yellow Fever for certain regions in Africa) and ensure you receive them in advance.
+                        Stay Hydrated: Drink plenty of water, especially in hot climates. Carry a reusable water bottle to refill and avoid dehydration.
+                        Food Safety: Be cautious about street food; choose vendors with high turnover and avoid raw foods in areas where water safety is a concern.</p>
+            </div>
+        </section>
+    </main>
+    <script>
+        // JavaScript for toggling details visibility
+        function toggleDetails(topic) {
+            const details = document.querySelector(`#${topic} .details`);
+            details.style.display = details.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>

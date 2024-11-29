@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel and Adventure Guider</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo" style="display: flex; align-items: center;">
+                <a href="#" style="display: flex; align-items: center; text-decoration: none; color: orange;">
+                    <i class="bx bx-map bx-tada" style="font-size: 2.5rem; margin-right: 0.5rem; color: orange;"></i>
+                    <span style="font-size: 2rem; font-weight: 900;">TravelGuider</span>
+                </a>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="news.html">News & Updates</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="login.html" style="padding: 8px 15px; background-color: orange; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; transition: background-color 0.3s ease;">Login</a>
+                </li>
+                <li>
+                    <a href="signup.html" style="padding: 8px 15px; background-color: orange; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; margin-left: 10px; transition: background-color 0.3s ease;">Sign Up</a>
+                </li>
+                <li>
+                    <a href="emergency.html" style="padding: 8px 15px; background-color: red; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; margin-left: 10px; transition: background-color 0.3s ease;">Emergency Button</a>
+                </li>
+            </ul>
+            
+            
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <section id="hero" style="background-image: url('Traveling boat.jpg.jpg'); background-size: cover; background-position: center; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; opacity: 0; transition: opacity 2s;">
+        <div style="background-color: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px;">
+            <h1 style="font-size: 3rem; margin-bottom: 10px;">Welcome to Travel Guider</h1>
+            <p style="font-size: 1.5rem; margin-bottom: 20px;">"Your ultimate companion for discovering new destinations. Experience the joy of travel, culture, and unforgettable adventures."</p>
+            <a href="#featured-destinations" style="background-color: orange; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 1.2rem; transition: transform 0.3s ease;" 
+               onmouseover="animateButtonHover(this)" 
+               onmouseout="resetButtonHover(this)">Discover Your Next Adventure</a>
+        </div>
+    </section>
+    
+    <script>
+        // Function to make the hero section fade in on page load
+        window.onload = function() {
+            document.getElementById('hero').style.opacity = 1;
+        };
+    
+        // Function to animate button hover
+        function animateButtonHover(element) {
+            element.style.transform = 'scale(1.1)';
+            element.style.backgroundColor = '#ff8c00'; // Darker orange on hover
+        }
+    
+        // Function to reset button hover effect
+        function resetButtonHover(element) {
+            element.style.transform = 'scale(1)';
+            element.style.backgroundColor = 'orange';
+        }
+    </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Blog</title>
+    <style>
+        /* Basic styling for the blog section */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .blog-container {
+            width: 80%;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .blog-post {
+            margin-bottom: 30px;
+            border-left: 5px solid orange; /* Left border for emphasis */
+            padding-left: 15px; /* Padding for spacing */
+        }
+        .blog-post img {
+            max-width: 100%; /* Make images responsive and not exceed container width */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 8px; /* Rounded corners */
+            width: 100%; /* Set to a smaller width */
+            max-width: 600px; /* Set a max width for images */
+            margin: 0 auto; /* Center the image */
+            display: block; /* Make the image a block element */
+        }
+        .blog-post h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .blog-post p {
+            color: #555;
+            line-height: 1.6;
+        }
+        .blog-post .read-more {
+            color: orange; /* Orange color for the link */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .blog-post .read-more:hover {
+            text-decoration: underline;
+        }
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .blog-container {
+                width: 95%;
+            }
+        }
+        /* Added styling for fade effect */
+        .hidden {
+            display: none;
+        }
+        .fade-in {
+            display: block;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="blog-container">
+        <div class="blog-post">
+            <img src="paris.jpg" alt="Exploring the Beauty of Paris">
+            <h2>Exploring the Beauty of Paris</h2>
+            <p>Paris, the city of lights, offers a blend of historic landmarks, art, and culture. Whether you’re visiting the Eiffel Tower, Louvre, or strolling down the Champs-Élysées, there’s always something captivating to discover...</p>
+            <a href="#" class="read-more" onclick="showMore(event, 'post1')">Read More</a>
+            <p id="post1" class="hidden">The hidden gems in Montmartre, the street artists, and quaint cafes make Paris a must-visit for anyone who loves art and history. Don't miss the opportunity to experience its magical charm!</p>
+        </div>
+        <div class="blog-post">
+            <img src="new zeland.jpg" alt="Top 5 Adventure Activities in New Zealand">
+            <h2>Top 5 Adventure Activities in New Zealand</h2>
+            <p>If you're a thrill-seeker, New Zealand should be on your bucket list. From bungee jumping in Queenstown to exploring the Waitomo caves, there are countless adventures waiting for you...</p>
+            <a href="#" class="read-more" onclick="showMore(event, 'post2')">Read More</a>
+            <p id="post2" class="hidden">Other activities include skydiving, white-water rafting, and hiking the world-famous Tongariro Alpine Crossing. Each adventure offers breathtaking views and unforgettable experiences!</p>
+        </div>
+        <div class="blog-post">
+            <img src="srilanka.jpg" alt="Discovering the Wonders of Sri Lanka">
+            <h2>Discovering the Wonders of Sri Lanka</h2>
+            <p>Sri Lanka, an island paradise, is known for its stunning beaches, rich history, and vibrant culture. Explore ancient temples, lush tea plantations, and beautiful wildlife...</p>
+            <a href="#" class="read-more" onclick="showMore(event, 'post3')">Read More</a>
+            <p id="post3" class="hidden">Don't forget to visit the iconic Sigiriya Rock Fortress and relax on the pristine beaches of Mirissa. Sri Lanka offers a unique experience for every traveler!</p>
+        </div>
+        <div class="blog-post">
+            <img src="japan.jpg" alt="A Journey Through Japan: Tradition Meets Modernity">
+            <h2>A Journey Through Japan: Tradition Meets Modernity</h2>
+            <p>Japan is a captivating blend of ancient traditions and cutting-edge technology. From serene temples to bustling cities, there's something for everyone...</p>
+            <a href="#" class="read-more" onclick="showMore(event, 'post4')">Read More</a>
+            <p id="post4" class="hidden">Explore the cherry blossoms in spring, the neon lights of Tokyo, and the tranquil gardens of Kyoto. Japan promises a journey like no other!</p>
+        </div>
+        <div class="blog-post">
+            <img src="costa rica.jpg" alt="Adventure Awaits in Costa Rica">
+            <h2>Adventure Awaits in Costa Rica</h2>
+            <p>Costa Rica is a nature lover's dream, offering lush rainforests, stunning beaches, and incredible biodiversity. Get ready for an adventure-filled vacation...</p>
+            <a href="#" class="read-more" onclick="showMore(event, 'post5')">Read More</a>
+            <p id="post5" class="hidden">Experience zip-lining through the canopy, relaxing in natural hot springs, and exploring vibrant wildlife in national parks. Your adventure starts here!</p>
+        </div>
+    </div>
+    <script>
+        // Function to show more content with fade effect
+        function showMore(event, postId) {
+            event.preventDefault();
+            var content = document.getElementById(postId);
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                content.classList.add('fade-in');
+                setTimeout(function() {
+                    content.style.opacity = 1; // Fade in effect
+                }, 10);
+            } else {
+                content.style.opacity = 0; // Fade out effect
+                setTimeout(function() {
+                    content.classList.add('hidden');
+                    content.classList.remove('fade-in');
+                }, 500); // Wait for fade out to finish before hiding
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Footer Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* CSS for the advanced footer */
+
+        body {
+    font-family: 'Times New Roman', Times, serif;
+    background: url('travel.jpg') no-repeat center center fixed; 
+    background-size: cover; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* Transparent background for a specific section */
+.featured-section, .travel-tips-section {
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 50px 0;
+    color: white;
+}
+
+/* Adjusting container styles for the transparent background */
+.featured-section .container, .travel-tips-section .container {
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.footer {
+    background: rgba(34, 34, 34, 0.9); 
+    padding: 50px 0;
+    color: #ddd;
+}
+
+
+
+        .content {
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #222;
+            color: #ddd;
+            padding: 50px 0;
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        .footer-column h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-column p,
+        .footer-column ul {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: orange;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .social-icons a {
+            color: #ddd;
+            margin-right: 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: orange;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            color: #aaa;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Content of the website -->
+    <div class="content">
+        <!-- Your content goes here -->
+    </div>
+<!-- Advanced Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>Welcome to TravelGuide, your go-to platform for discovering the world's most exciting destinations. Whether you're seeking adventure, relaxation, or cultural experiences, we bring the best travel spots right to your screen. Our platform is designed to help you plan, book, and enjoy your travels with ease. At TravelGuide, we're dedicated to making your travel dreams come true. Explore our curated guides, stay informed with the latest travel news, and embark on your next journey with confidence.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="news.html">News & Updates</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><a href="mailto:info@travelguider.lk">info@travelguider.lk</a></li>
+                    <li><a href="tel:+94123456789">+94 123 456 789</a></li>
+                    <li><a href="#">123 Travel Lane, Colombo 07, Sri Lanka</a></li>
+                </ul>
+                
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 TravelGuide. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+
+
+
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Blog</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .blog-container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .blog-post {
+            margin-bottom: 30px;
+        }
+        .blog-post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .blog-post h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+        .blog-post p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .read-more {
+            color: #007bff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="blog-container">
+    <div class="blog-post">
+        <img src="book_club.jpg" alt="Join Our Book Club">
+        <h2>Join Our Book Club</h2>
+        <p>Our book club offers a wonderful opportunity to connect with fellow book lovers, participate in engaging discussions, and discover new literary treasures...</p>
+        <a class="read-more" onclick="showMore(event, 'post1')">Read More</a>
+        <p id="post1" class="hidden">The book club meets every month, and we explore a wide variety of genres and authors. Join us and enrich your reading experience with insightful conversations and new friendships!</p>
+    </div>
+    <div class="blog-post">
+        <img src="author_event.jpg" alt="Upcoming Author Event">
+        <h2>Upcoming Author Event</h2>
+        <p>We're excited to announce an upcoming event with bestselling author Jane Doe. This is a unique opportunity to hear about her latest book, get your copy signed, and ask questions...</p>
+        <a class="read-more" onclick="showMore(event, 'post2')">Read More</a>
+        <p id="post2" class="hidden">The event will take place at our main library branch on the 20th of next month. Be sure to reserve your spot early, as spaces are limited. Don't miss out on this exciting opportunity!</p>
+    </div>
+    <!-- Add more blog posts as needed -->
+</div>
+
+<script>
+    function showMore(event, postId) {
+        event.preventDefault();
+        const post = document.getElementById(postId);
+        if (post.classList.contains('hidden')) {
+            post.classList.remove('hidden');
+            event.target.textContent = 'Read Less';
+        } else {
+            post.classList.add('hidden');
+            event.target.textContent = 'Read More';
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,525 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #333;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.logo a {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.logo a:hover {
+    color: #ff9800; 
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff9800; 
+}
+
+/* Dropdown Menu Styles */
+.nav-links li:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+    transition: background-color 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background-color: #555;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-toggle .bar {
+        background-color: #fff;
+    }
+}
+
+
+.featured-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    
+    
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+   
+}
+
+.destination-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.destination-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f2f2f2 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    border: 2px solid transparent; 
+    padding: 5px; 
+}
+
+/* Decorative border with animated glow */
+ 
+.destination-card::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 165, 0, 0.2); 
+    z-index: 1;
+    transition: 0.4s ease;
+}
+
+.destination-card::before {
+    top: -60px;
+    left: -60px;
+}
+
+.destination-card::after {
+    bottom: -60px;
+    right: -60px;
+}
+
+/* Hover effects */
+ 
+.destination-card:hover::after {
+    transform: scale(1.8);
+    background: rgba(173, 255, 47, 0.3); 
+}
+
+.destination-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    border: 2px solid #f2a900; 
+}
+
+.destination-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 5px solid #f2a900; 
+}
+
+.destination-info {
+    padding: 20px;
+}
+
+.destination-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.destination-info p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #E50914;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: rgb(51, 192, 220);
+    transform: scale(1.05);
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.star-rating i {
+    font-size: 1.5rem;
+    color: gold; 
+    margin: 0 2px;
+    transition: color 0.3s; 
+}
+
+.star-rating i:hover {
+    color: orange; 
+}
+
+
+
+.travel-tips-section {
+    padding: 60px 20px;
+    background-color: #fefefe;
+    position: relative;
+}
+
+.tips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.tip-card {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: 2px solid transparent; 
+    padding: 5px; 
+}
+
+ 
+.tip-card::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 165, 0, 0.1);
+    z-index: 1;
+    transition: 0.4s ease;
+}
+
+.tip-card::before {
+    top: -50px;
+    left: -50px;
+}
+
+.tip-card::after {
+    bottom: -50px;
+    right: -50px;
+}
+
+ 
+.tip-card:hover::after {
+    transform: scale(1.5);
+    background: rgba(173, 255, 47, 0.2);
+}
+
+.tip-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #e0e0e0;
+    z-index: 2;
+}
+
+.tip-content {
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.tip-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.tip-content p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.tip-card .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: orangered;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+    position: relative;
+}
+
+.tip-card .btn:hover {
+    background-color: greenyellow;
+    transform: translateY(-2px);
+}
+
+.tip-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    border: 2px solid #f2a900; 
+}
+
+
+.tip-card:hover::after {
+    transform: scale(1.5);
+    background: rgba(255, 255, 255, 0.3); 
+}
+
+
+.tip-card::after {
+    background: linear-gradient(135deg, #f2a900 0%, #f2a900 100%);
+    z-index: 0;
+    border-radius: 50%;
+    width: 110px;
+    height: 110px;
+    bottom: -55px;
+    right: -55px;
+    opacity: 0.2;
+}
+
+.section {
+    padding-top: 80px;
+    padding-bottom: 40px;
+    background: url('.jpg') no-repeat center center/cover; 
+    position: relative;
+}
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+
+.section-header {
+    margin-bottom: 30px;
+    padding-left: 20px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: orange; 
+    border-left: 4px solid red; 
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2; 
+}
+
+.movies-slide {
+    position: relative;
+    z-index: 2;
+}
+
+/* Rest of your CSS */
+
+
+.movies-slide {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.movie-item {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    overflow: hidden;
+    border-radius: 12px; 
+    background-color: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie-item img {
+    width: 100%;
+    height: 420px; 
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.movie-item:hover img {
+    transform: scale(1.1); 
+}
+
+.movie-item-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.movie-item-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: red; 
+    margin-bottom: 10px;
+}
+
+.movie-infos {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie-info {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.movie-info i {
+    color: gold; 
+    margin-right: 5px;
+}
+
+.movie-info span {
+    color: #fff;
+}
+
+.movie-item:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); 
+}
+
+.carousel-nav-center .owl-nav button {
+    background: none;
+    border: none;
+    color: red; 
+}
+
+.carousel-nav-center .owl-nav button i {
+    font-size: 2rem;
+}
+
+.carousel-nav-center .owl-nav button:hover i {
+    color: rgb(51, 192, 220);
+}
+
+.owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.owl-nav button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.owl-prev {
+    left: -25px;
+}
+
+.owl-next {
+    right: -25px;
+}

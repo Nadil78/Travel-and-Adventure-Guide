@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel and Adventure Guider</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo" style="display: flex; align-items: center;">
+                <a href="#" style="display: flex; align-items: center; text-decoration: none; color: orange;">
+                    <i class="bx bx-map bx-tada" style="font-size: 2.5rem; margin-right: 0.5rem; color: orange;"></i>
+                    <span style="font-size: 2rem; font-weight: 900;">TravelGuider</span>
+                </a>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="news.html">News & Updates</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="guidepanel.php">Guide Panel</a></li>
+                <li>
+                    <a href="login.php" style="padding: 8px 15px; background-color: orange; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; transition: background-color 0.3s ease;">Login</a>
+                </li>
+                <li>
+                    <a href="signup.php" style="padding: 8px 15px; background-color: orange; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; margin-left: 10px; transition: background-color 0.3s ease;">Sign Up</a>
+                </li>
+                <li>
+                    <a href="emergency.php" style="padding: 8px 15px; background-color: red; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; margin-left: 10px; transition: background-color 0.3s ease;">Emergency Button</a>
+                </li>
+            </ul>
+            
+            
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    <section id="hero" style="background-image: url('Traveling boat.jpg.jpg'); background-size: cover; background-position: center; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; opacity: 0; transition: opacity 2s;">
+        <div style="background-color: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 10px;">
+            <h1 style="font-size: 3rem; margin-bottom: 10px;">Welcome to Travel Guider</h1>
+            <p style="font-size: 1.5rem; margin-bottom: 20px;">"Your ultimate companion for discovering new destinations. Experience the joy of travel, culture, and unforgettable adventures."</p>
+            <a href="#featured-destinations" style="background-color: orange; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 1.2rem; transition: transform 0.3s ease;" 
+               onmouseover="animateButtonHover(this)" 
+               onmouseout="resetButtonHover(this)">Discover Your Next Adventure</a>
+        </div>
+    </section>
+    
+    <script>
+        // Function to make the hero section fade in on page load
+        window.onload = function() {
+            document.getElementById('hero').style.opacity = 1;
+        };
+    
+        // Function to animate button hover
+        function animateButtonHover(element) {
+            element.style.transform = 'scale(1.1)';
+            element.style.backgroundColor = '#ff8c00'; // Darker orange on hover
+        }
+    
+        // Function to reset button hover effect
+        function resetButtonHover(element) {
+            element.style.transform = 'scale(1)';
+            element.style.backgroundColor = 'orange';
+        }
+    </script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Guide</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .featured-section {
+            padding: 40px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: white;
+        }
+        .destination-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .destination-card {
+            background-color: #e6e6e6;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 250px;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .destination-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .destination-content {
+            padding: 15px;
+        }
+        .destination-title {
+            font-size: 1.5em;
+            color: #5a5a5a;
+        }
+        .carousel {
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+        }
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-image {
+            min-width: 100%;
+            transition: opacity 0.5s ease;
+        }
+        .carousel-indicators {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+        }
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #bbb;
+            cursor: pointer;
+        }
+        .indicator.active {
+            background-color: #333;
+        }
+        /* Hover effects */
+        .destination-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<!-- Featured Sections -->
+<div class="featured-section">
+    <div class="section-title">Top Destinations</div>
+    <div class="destination-grid">
+        <div class="destination-card">
+            <img src="kovil.jpg" alt="Prambanan Temple">
+            <div class="destination-content">
+                <div class="destination-title">Prambanan Temple</div>
+            </div>
+        </div>
+        <div class="destination-card">
+            <img src="christ.jpg" alt="Brazil Christ the Redeemer">
+            <div class="destination-content">
+                <div class="destination-title">Brazil Christ the Redeemer</div>
+            </div>
+        </div>
+        <div class="destination-card">
+            <img src="mountain.jpg" alt="Panorama Beach">
+            <div class="destination-content">
+                <div class="destination-title">Panorama Beach</div>
+            </div>
+        </div>
+        <div class="destination-card">
+            <img src="resort.jpg" alt="Bora Bora Island Resort">
+            <div class="destination-content">
+                <div class="destination-title">Bora Bora Island Resort</div>
+            </div>
+        </div>
+        <div class="destination-card">
+            <img src="rio.jpg" alt="Rio De Janeiro">
+            <div class="destination-content">
+                <div class="destination-title">Rio De Janeiro</div>
+            </div>
+        </div>
+        <div class="destination-card">
+            <img src="island.jpg" alt="Saint George Island Kotor">
+            <div class="destination-content">
+                <div class="destination-title">Saint George Island Kotor</div>
+            </div>
+        </div>
+        <div class="destination-card">
+            <img src="castle.jpg" alt="Moritzburg Castle">
+            <div class="destination-content">
+                <div class="destination-title">Moritzburg Castle</div>
+            </div>
+        </div>
+        <div class="destination-card">
+            <img src="island.jpg" alt="Saint George Island Kotor">
+            <div class="destination-content">
+                <div class="destination-title">Saint George Island Kotor</div>
+            </div>
+        </div>
+        <div class="destination-card">
+            <img src="castle.jpg" alt="Moritzburg Castle">
+            <div class="destination-content">
+                <div class="destination-title">Moritzburg Castle</div>
+            </div>
+        </div>
+        <div class="destination-card">
+            <img src="Austria.jpg" alt="Austria">
+            <div class="destination-content">
+                <div class="destination-title">Austria</div>
+            </div>
+        </div>
+    </div>
+
+
+  
+
+<script>
+    // JavaScript for Carousel
+    const carouselImages = document.querySelector('.carousel-images');
+    const indicators = document.querySelectorAll('.indicator');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        const totalSlides = indicators.length;
+        currentIndex = (index + totalSlides) % totalSlides; // Wrap around
+        const offset = -currentIndex * 100; // Move left
+        carouselImages.style.transform = `translateX(${offset}%)`;
+
+        // Update active indicator
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    indicators.forEach(indicator => {
+        indicator.addEventListener('click', () => {
+            const index = parseInt(indicator.getAttribute('data-index'));
+            showSlide(index);
+        });
+    });
+
+    // Auto slide every 5 seconds
+    setInterval(() => {
+        showSlide(currentIndex + 1);
+    }, 5000);
+</script>
+
+</body>
+</html>
+
+    
+
+
+   
+    <section id="featured-destinations" class="featured-section">
+        <div class="container">
+            <h2 class="section-title">Sri Lankan Featured Destinations</h2>
+            
+            <div class="destination-cards">
+                <div class="destination-card">
+                    <img src="cultural.jpg" alt="Destination 1">
+                    <div class="destination-info">
+                        <h3>Cultural Heritage</h3>
+                        <p>Experience the romance and culture of Paris with our exclusive guides.</p>
+                        <div class="star-rating">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                        <a href="explore.html" class="btn">Explore Cultural Heritage</a>
+                    </div>
+                </div>
+
+                
+                
+                <div class="destination-card">
+                    <img src="beaches.jpg" alt="Destination 2">
+                    <div class="destination-info">
+                        <h3>Beaches and Coastal Getaways</h3>
+                        <p>Discover the vibrant life and iconic landmarks of New York City.</p>
+                        <div class="star-rating">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                        <a href="beaches.html" class="btn">Explore Beaches and Coastal Getaways</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="wildlife.jpg" alt="Destination 2">
+                    <div class="destination-info">
+                        <h3>Wildlife and Nature</h3>
+                        <p>Discover the vibrant life and iconic landmarks of New York City.</p>
+                        <div class="star-rating">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                        <a href="wildlife.html" class="btn">Explore Wildlife and Nature</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="tea.jpg" alt="Destination 2">
+                    <div class="destination-info">
+                        <h3>Hill Country and Tea Plantations</h3>
+                        <p>Discover the vibrant life and iconic landmarks of New York City.</p>
+                        <div class="star-rating">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                        <a href="plantation.html" class="btn">Explore Hill Country and Tea Plantations</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="outdoor.jpg" alt="Destination 2">
+                    <div class="destination-info">
+                        <h3>Adventure and Outdoor Activities</h3>
+                        <p>Discover the vibrant life and iconic landmarks of New York City.</p>
+                        <div class="star-rating">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                        <a href="outdoor.html" class="btn">Explore Adventure and Outdoor Activities</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="religious.jpg" alt="Destination 2">
+                    <div class="destination-info">
+                        <h3>Spiritual and Religious Sites</h3>
+                        <p>Discover the vibrant life and iconic landmarks of New York City.</p>
+                        <div class="star-rating">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                        <a href="spiritual.html" class="btn">Explore Spiritual and Religious Sites</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="tourism.jpg" alt="Destination 2">
+                    <div class="destination-info">
+                        <h3>Culinary Tourism</h3>
+                        <p>Discover the vibrant life and iconic landmarks of New York City.</p>
+                        <div class="star-rating">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                        <a href="culinary.html" class="btn">Explore Culinary Tourism</a>
+                    </div>
+                </div>
+
+                <div class="destination-card">
+                    <img src="festival.jpg" alt="Destination 2">
+                    <div class="destination-info">
+                        <h3>Festivals and Events</h3>
+                        <p>Discover the vibrant life and iconic landmarks of New York City.</p>
+                        <div class="star-rating">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                        </div>
+                        <a href="festivals.html" class="btn">Explore Festivals and Events</a>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Travel Deals and Offers</title>
+        <style>
+            /* CSS for the body with background image */
+            body {
+                background: url('background.jpg') no-repeat center center fixed;
+                background-size: cover;
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                color: #fff;
+            }
+    
+            .deals-container {
+                width: 80%;
+                margin: auto;
+                padding: 20px;
+                background: rgba(0, 0, 0, 0.7); /* Dark overlay to improve readability */
+                border-radius: 10px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+                color: #fff;
+                animation: fadeIn 1.5s ease-in-out;
+            }
+    
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+    
+            .deal-card {
+                border: 1px solid #ddd;
+                padding: 15px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                background-color: rgba(255, 255, 255, 0.9);
+                color: #333;
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+    
+            .deal-card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            }
+    
+            .deal-image {
+                width: 150px;
+                height: 100px;
+                border-radius: 5px;
+                margin-right: 20px;
+                transition: transform 0.3s;
+            }
+    
+            .deal-image:hover {
+                transform: scale(1.1);
+            }
+    
+            .deal-details {
+                flex: 1;
+            }
+    
+            .deal-title {
+                font-size: 1.5em;
+                font-weight: bold;
+                color: #e67e22; /* Orange color */
+            }
+    
+            .deal-description {
+                font-size: 1em;
+                color: #555;
+                margin: 10px 0;
+            }
+    
+            .deal-price {
+                font-size: 1.2em;
+                font-weight: bold;
+                color: #e74c3c;
+            }
+    
+            .discount-label {
+                background-color: #27ae60;
+                color: #fff;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 0.8em;
+                display: inline-block;
+            }
+    
+            .book-now-btn {
+                background-color: #e67e22; /* Orange color */
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s, transform 0.3s;
+                text-decoration: none;
+            }
+    
+            .book-now-btn:hover {
+                background-color: #d35400; /* Darker orange */
+                transform: translateY(-3px);
+            }
+        </style>
+    </head>
+    <body>
+    
+        <div class="deals-container">
+            <h2>Travel Deals and Offers</h2>
+    
+            <!-- Deal 1 -->
+            <div class="deal-card">
+                <img src="maldives.jpg" alt="Maldives" class="deal-image">
+                <div class="deal-details">
+                    <div class="deal-title">Tropical Paradise Getaway - Maldives</div>
+                    <div class="deal-description">Enjoy 7 nights in a luxury resort with full-board meals and water activities included.</div>
+                    <div class="deal-price">$1,499 <span class="discount-label">20% OFF</span></div>
+                </div>
+                <a href="#" class="book-now-btn">Book Now</a>
+            </div>
+    
+            <!-- Deal 2 -->
+            <div class="deal-card">
+                <img src="Europe Tour.jpg" alt="Europe Tour" class="deal-image">
+                <div class="deal-details">
+                    <div class="deal-title">European City Tour - Paris, Rome, and Barcelona</div>
+                    <div class="deal-description">A 10-day guided tour across three iconic cities, including hotel stays and breakfast.</div>
+                    <div class="deal-price">$2,299 <span class="discount-label">15% OFF</span></div>
+                </div>
+                <a href="#" class="book-now-btn">Book Now</a>
+            </div>
+    
+            <!-- Deal 3 -->
+            <div class="deal-card">
+                <img src="Canadian Rockies.jpg" alt="Canadian Rockies" class="deal-image">
+                <div class="deal-details">
+                    <div class="deal-title">Adventure in the Rockies - Canada</div>
+                    <div class="deal-description">5-day hiking and camping adventure in the Canadian Rockies with expert guides.</div>
+                    <div class="deal-price">$899 <span class="discount-label">Early Bird Offer</span></div>
+                </div>
+                <a href="#" class="book-now-btn">Book Now</a>
+            </div>
+        </div>
+    
+        <script>
+            // JavaScript for handling click action with animation
+            document.querySelectorAll('.book-now-btn').forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    this.style.backgroundColor = '#d35400'; // Change to darker orange
+                    this.innerText = 'Added to Booking!';
+                    setTimeout(() => {
+                        alert('This deal has been added to your booking list!');
+                        this.style.backgroundColor = '#e67e22'; // Change back to original
+                        this.innerText = 'Book Now';
+                    }, 1000);
+                });
+            });
+        </script>
+    
+    </body>
+    </html>
+    
+    <section id="travel-tips" class="travel-tips-section">
+        <div class="container">
+            <h2 class="section-title">Travel Tips and Guides</h2>
+            <div class="tips-container">
+                <div class="tip-card">
+                    <img src="packing 2.jpg" alt="Tip 1">
+                    <div class="tip-content">
+                        <h3> Packing Essentials</h3>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                <div class="tip-card">
+                    <img src="safety.jpg" alt="Tip 2">
+                    <div class="tip-content">
+                        <h3>Safety Tips for Travelers</h3>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <img src="health.jpg" alt="Tip 2">
+                    <div class="tip-content">
+                        <h3>Travel Health Tips</h3>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <img src="budget.jpg" alt="Tip 2">
+                    <div class="tip-content">
+                        <h3>Budget Travel Tips</h3>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <img src="sustainable stock.jpg" alt="Tip 2">
+                    <div class="tip-content">
+                        <h3>Sustainable Travel</h3>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <img src="insuarance.jpeg" alt="Tip 3">
+                    <div class="tip-content">
+                        <h3>Travel Insurance Guide</h3>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+  
+    
+
+
+
+    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Reviews and Ratings</title>
+    <style>
+        /* CSS for the reviews and ratings section */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('your-background-image-url.jpg'); /* Add your background image here */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            margin: 0;
+            padding: 0;
+            color: #333; /* Default text color */
+        }
+
+        .reviews-container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for better readability */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #FF5733; /* Main title color */
+        }
+
+        .review-card {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.3s;
+        }
+
+        .review-card:hover {
+            background-color: #FFEDD5; /* Hover effect */
+        }
+
+        .review-card:last-child {
+            border-bottom: none;
+        }
+
+        .review-details {
+            flex: 1;
+        }
+
+        .review-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #FF5733; /* Review title color */
+        }
+
+        .review-text {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .star-rating {
+            color: #FFD700;
+            font-size: 1.2em;
+        }
+
+        .add-review-container {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .review-input {
+            width: calc(100% - 40px);
+            padding: 10px;
+            border: 1px solid #FF5733; /* Input border color */
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: border-color 0.3s;
+        }
+
+        .review-input:focus {
+            border-color: #FF6F61; /* Focused input color */
+        }
+
+        .submit-btn {
+            background-color: #FF5733; /* Button color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #FF6F61; /* Button hover color */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reviews-container">
+        <h2>User Reviews and Ratings</h2>
+
+        <!-- Existing reviews -->
+        <div class="review-card">
+            <div class="review-details">
+                <div class="review-title">Amazing Beach Resort</div>
+                <div class="review-text">Had a wonderful stay, the staff was friendly, and the view was breathtaking!</div>
+                <div class="star-rating">★★★★☆</div>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="review-details">
+                <div class="review-title">Cozy Mountain Cabin</div>
+                <div class="review-text">Perfect for a quiet getaway. The location was serene and beautiful.</div>
+                <div class="star-rating">★★★★★</div>
+            </div>
+        </div>
+
+        <!-- Add a new review -->
+        <div class="add-review-container">
+            <h3>Add Your Review</h3>
+            <input type="text" id="reviewTitle" class="review-input" placeholder="Title of your review">
+            <textarea id="reviewText" class="review-input" rows="3" placeholder="Write your review here"></textarea>
+            <div>
+                <label for="rating">Rating:</label>
+                <select id="rating" class="review-input">
+                    <option value="1">★☆☆☆☆</option>
+                    <option value="2">★★☆☆☆</option>
+                    <option value="3">★★★☆☆</option>
+                    <option value="4">★★★★☆</option>
+                    <option value="5">★★★★★</option>
+                </select>
+            </div>
+            <button class="submit-btn" onclick="submitReview()">Submit Review</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for adding a new review
+        function submitReview() {
+            var title = document.getElementById('reviewTitle').value;
+            var text = document.getElementById('reviewText').value;
+            var rating = document.getElementById('rating').value;
+            var starRating = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+
+            if (title && text) {
+                // Create a new review card
+                var reviewCard = document.createElement('div');
+                reviewCard.className = 'review-card';
+                reviewCard.innerHTML = `
+                    <div class="review-details">
+                        <div class="review-title">${title}</div>
+                        <div class="review-text">${text}</div>
+                        <div class="star-rating">${starRating}</div>
+                    </div>
+                `;
+
+                // Add the new review card to the container
+                var container = document.querySelector('.reviews-container');
+                container.insertBefore(reviewCard, container.querySelector('.add-review-container'));
+
+                // Clear input fields
+                document.getElementById('reviewTitle').value = '';
+                document.getElementById('reviewText').value = '';
+                document.getElementById('rating').value = '1';
+            } else {
+                alert('Please fill in both the title and review text.');
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+    
+    
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Footer Example</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* CSS for the advanced footer */
+
+        body {
+    font-family: 'Times New Roman', Times, serif;
+    background: url('travel.jpg') no-repeat center center fixed; 
+    background-size: cover; 
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+/* Transparent background for a specific section */
+.featured-section, .travel-tips-section {
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 50px 0;
+    color: white;
+}
+
+/* Adjusting container styles for the transparent background */
+.featured-section .container, .travel-tips-section .container {
+    background: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.footer {
+    background: rgba(34, 34, 34, 0.9); 
+    padding: 50px 0;
+    color: #ddd;
+}
+
+
+
+        .content {
+            flex: 1;
+        }
+
+        .footer {
+            background-color: #222;
+            color: #ddd;
+            padding: 50px 0;
+        }
+
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column {
+            flex: 1;
+            margin: 0 20px;
+        }
+
+        .footer-column h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-column p,
+        .footer-column ul {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: orange;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .social-icons a {
+            color: #ddd;
+            margin-right: 15px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: orange;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            color: #aaa;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Content of the website -->
+    <div class="content">
+        <!-- Your content goes here -->
+    </div>
+<!-- Advanced Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>Welcome to TravelGuider, your go-to platform for discovering the world's most exciting destinations. Whether you're seeking adventure, relaxation, or cultural experiences, we bring the best travel spots right to your screen. Our platform is designed to help you plan, book, and enjoy your travels with ease. At TravelGuide, we're dedicated to making your travel dreams come true. Explore our curated guides, stay informed with the latest travel news, and embark on your next journey with confidence.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="booking.html">Booking</a></li>
+                    <li><a href="news.html">News & Updates</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><a href="mailto:info@travelguider.lk">info@travelguider.lk</a></li>
+                    <li><a href="tel:+94123456789">+94 123 456 789</a></li>
+                    <li><a href="#">123 Travel Lane, Colombo 07, Sri Lanka</a></li>
+                </ul>
+                
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 TravelGuide. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+
+
+
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
